@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro de evaluadores</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+</head>
+<body>
+	<div class="container-fluid p-0 m-0">
+		<div id="cabecera" class="d-flex justify-content-around align-items-center p-4 my-3">
+			<img src="https://civiltec.edu.pe/wp-content/uploads/2022/09/CIVILTEC_BLANCO_TRANSPARENTE-300x94.png" alt="">
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<p class="text-center display-5">Registro de evaluadores</p>
+					<nav aria-label="breadcrumb ">
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a href="#" onclick="window.history.back(); return false;" class="text-decoration-none"><i class="bi bi-house"></i> Inicio</a></li>
+							<li class="breadcrumb-item active" aria-current="page"><i class="bi bi-card-text"></i> Registro de evaluadores</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<section class="container-fluid" id="app">
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped" id="miTabla">
+						<thead>
+							<tr class="table-dark">
+								<td>N°</td>
+								<th>Apellido Paterno</th>
+								<th>Apellido Materno</th>
+								<th>Nombres</th>
+								<th>Teléfono</th>
+								<th>Correo Electrónico</th>
+								<th>Profesión/Ocupación</th>
+								<th>Departamento</th>
+								<th>Acreditado en</th>
+								<th>Código</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Gómez</td>
+								<td>Pérez</td>
+								<td>Carlos Alberto</td>
+								<td>987654321</td>
+								<td>carlos.gomez@ejemplo.com</td>
+								<td>Ingeniero Civil</td>
+								<td>Lima</td>
+								<td>Estructuras</td>
+								<td>EV-001</td>
+								<td>
+									<button class="btn btn-outline-primary"><i class="bi bi-person-vcard"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Rodríguez</td>
+								<td>Mendoza</td>
+								<td>María Elena</td>
+								<td>912345678</td>
+								<td>maria.rodriguez@ejemplo.com</td>
+								<td>Arquitecta</td>
+								<td>Arequipa</td>
+								<td>Diseño</td>
+								<td>EV-002</td>
+								<td>
+									<button class="btn btn-outline-primary"><i class="bi bi-person-vcard"></i></button>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Castillo</td>
+								<td>Vásquez</td>
+								<td>Juan Diego</td>
+								<td>945678912</td>
+								<td>juan.castillo@ejemplo.com</td>
+								<td>Ingeniero Ambiental</td>
+								<td>Trujillo</td>
+								<td>Gestión Ambiental</td>
+								<td>EV-003</td>
+								<td>
+									<button class="btn btn-outline-primary"><i class="bi bi-person-vcard"></i></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+						
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.2.2/b-3.2.2/b-html5-3.2.2/datatables.min.js" integrity="sha384-7dZjnLGysu8ZQ2m9/wtbbhqqWiwoSkpOfKZ/NXU2n9KcY1UylHwK90VopFxrtD0T" crossorigin="anonymous"></script>
+	<script>
+		const { createApp, ref, onMounted } = Vue
+
+		createApp({
+			setup() {
+				const message = ref('Hello vue!')
+
+				onMounted(()=>{
+					$('#miTabla').DataTable({
+						// Mostrar 50 registros por página
+						"pageLength": 50,
+						
+						// Ocultar el selector de cantidad de registros por página
+						"lengthChange": false,
+						
+						// Ocultar la caja de búsqueda
+						"searching": false,
+						
+						// Configuración de idioma
+						"language": {
+								"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+								"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+								"infoFiltered": "(filtrados de un total de _MAX_ registros)"								
+						},
+						
+						// Botones de exportación
+						"dom": 'Bfrtip<"clear">',
+						"dom": '<"top"fB>rt<"bottom"ilp>',
+						"buttons": [
+							{
+								extend: 'excelHtml5',
+								text: '<i class="bi bi-file-earmark-excel"></i> Exportar a Excel',
+								className: 'btn btn-excel btn-outline-secondary btn-sm my-2'
+							},
+							{
+								extend: 'pdfHtml5',
+								text: '<i class="bi bi-file-earmark-pdf"></i> Exportar a PDF',
+								className: 'btn btn-pdf btn-outline-secondary btn-sm my-2'
+							}
+						]
+					});
+
+				})
+
+				return {
+					message
+				}
+			}
+		}).mount('#app')
+	</script>
+	<style>
+		#cabecera{
+			background-color: #f50000;
+			color: white;
+		}
+		.bottom{
+			padding-top: 1rem;
+			font-size: 0.8rem;
+			display: flex!important;
+    	justify-content: space-between!important;
+		}
+	</style>
+</body>
+</html>
